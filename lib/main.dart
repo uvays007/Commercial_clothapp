@@ -1,4 +1,4 @@
-import 'package:comercial_app/screens/home.dart';
+import 'package:comercial_app/screens/onboarding.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,6 +10,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(debugShowCheckedModeBanner: false, home: Home());
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Onboarding(),
+    );
   }
 }
