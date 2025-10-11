@@ -49,7 +49,7 @@ class Signup extends StatelessWidget {
               padding: EdgeInsetsGeometry.only(left: 20, right: 20),
               child: Column(
                 children: [
-                  Container(
+                  SizedBox(
                     height: 40,
                     child: TextField(
                       decoration: InputDecoration(
