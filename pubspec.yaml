@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_svg: ^2.0.9
 
 dev_dependencies:
   flutter_test:
@@ -21,6 +22,8 @@ flutter:
     - assets/images/watch_onborad.jpg
     - assets/images/appi.jpg
     - assets/images/woman-with-shopping-bags-studio-yellow-background-isolated.jpg
+    - assets/icons/Google_Favicon_2025.svg
+    - assets/icons/Apple_logo_black.svg
   fonts:
     - family: LondrinaSolid
       fonts:
