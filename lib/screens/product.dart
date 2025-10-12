@@ -60,7 +60,6 @@ class Product extends StatelessWidget {
                       ),
                     ),
 
-                    // Product name and price
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: const [
@@ -95,8 +94,6 @@ class Product extends StatelessWidget {
                     ),
 
                     const SizedBox(height: 20),
-
-                    // Size options
                     const Text(
                       'Select Size',
                       style: TextStyle(
@@ -130,8 +127,6 @@ class Product extends StatelessWidget {
                     ),
 
                     const SizedBox(height: 20),
-
-                    // Color options
                     const Text(
                       'Select Color',
                       style: TextStyle(
@@ -185,7 +180,6 @@ class Product extends StatelessWidget {
         ),
       ),
 
-      // Floating "Add to Cart" Button
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
