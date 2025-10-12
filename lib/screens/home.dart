@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 15),
+            SizedBox(height: 10),
             Container(
               decoration: BoxDecoration(
                 color: Color(0xFFF1F3F4),
@@ -61,10 +61,10 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 10),
             Container(
               width: double.infinity,
-              height: 145, // adjust as needed
+              height: 120, // adjust as needed
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20), // rounded corners
                 image: DecorationImage(
@@ -82,7 +82,7 @@ class _HomeState extends State<Home> {
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 10, top: 10),
+                  padding: const EdgeInsets.only(left: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -111,7 +111,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             Row(
               children: [
                 Text(
@@ -130,7 +130,7 @@ class _HomeState extends State<Home> {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

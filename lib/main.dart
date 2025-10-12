@@ -1,4 +1,7 @@
-import 'package:comercial_app/screens/home.dart';
+import 'package:comercial_app/screens/bottomnavigator.dart';
+import 'package:comercial_app/screens/onboarding.dart';
+import 'package:comercial_app/screens/product.dart';
+import 'package:comercial_app/screens/tryon.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,6 +13,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Home());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Tryon());
   }
 }

@@ -38,7 +38,6 @@ class _OnboardingState extends State<Onboarding>
     return Scaffold(
       body: Stack(
         children: [
-          // 🖼️ Background Image
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -50,7 +49,6 @@ class _OnboardingState extends State<Onboarding>
             ),
           ),
 
-          // 🌓 Dark Gradient Overlay
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -64,8 +62,6 @@ class _OnboardingState extends State<Onboarding>
               ),
             ),
           ),
-
-          // 🌟 Fade-in Content
           FadeTransition(
             opacity: _fadeAnimation,
             child: Padding(
@@ -75,7 +71,6 @@ class _OnboardingState extends State<Onboarding>
                 children: [
                   const Spacer(),
 
-                  // 🎨 Gradient Title
                   ShaderMask(
                     shaderCallback: (bounds) => const LinearGradient(
                       colors: [Colors.amber, Colors.orangeAccent],
@@ -83,7 +78,7 @@ class _OnboardingState extends State<Onboarding>
                       end: Alignment.bottomRight,
                     ).createShader(bounds),
                     child: const Text(
-                      'Choose\nYour\nPerfect Gadget',
+                      'Choose\nYour\nPerfect Fashion',
                       style: TextStyle(
                         fontSize: 48,
                         fontWeight: FontWeight.bold,
@@ -95,14 +90,12 @@ class _OnboardingState extends State<Onboarding>
 
                   const SizedBox(height: 20),
 
-                  // 💬 Subtitle
                   Row(
                     children: const [
-                      Icon(Icons.bolt, color: Colors.amber, size: 22),
                       SizedBox(width: 8),
                       Flexible(
                         child: Text(
-                          'Find the latest & best gadgets\nthat match your lifestyle.',
+                          'Find the latest & best outfits\nthat match your lifestyle.',
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.white70,
@@ -114,8 +107,6 @@ class _OnboardingState extends State<Onboarding>
                   ),
 
                   const SizedBox(height: 40),
-
-                  // ⚡ Glowing Button
                   Center(
                     child: SizedBox(
                       width: double.infinity,
@@ -129,9 +120,7 @@ class _OnboardingState extends State<Onboarding>
                           shadowColor: Colors.amberAccent.withOpacity(0.6),
                           elevation: 10,
                         ),
-                        onPressed: () {
-                          // TODO: Navigate to next screen
-                        },
+                        onPressed: () {},
                         child: const Text(
                           "Get Started",
                           style: TextStyle(
