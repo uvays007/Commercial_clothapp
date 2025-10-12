@@ -7,25 +7,22 @@ environment:
   sdk: ^3.8.1
 
 dependencies:
+  carousel_slider: ^5.1.1
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.9
 
 dev_dependencies:
+  flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
 
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/watch_onborad.jpg
-    - assets/images/appi.jpg
-    - assets/images/woman-with-shopping-bags-studio-yellow-background-isolated.jpg
-    - assets/icons/Google_Favicon_2025.svg
-    - assets/icons/Apple_logo_black.svg
-    - assets/images/young-woman-beautiful-red-dress.jpg
-    - assets/icons/arrow_forward_ios_24dp_000000_FILL0_wght400_GRAD0_opsz24.png
+    - assets/images/
+    - assets/icons/
+
   fonts:
     - family: LondrinaSolid
       fonts:
@@ -36,7 +33,3 @@ flutter:
     - family: Jomolhari
       fonts:
         - asset: assets/fonts/Jomolhari-Regular.ttf
-  
-  
-
-
