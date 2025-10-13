@@ -55,6 +55,14 @@ class _HomeState extends State<Home> {
               ),
               child: TextFormField(
                 decoration: InputDecoration(
+                  suffixIcon: Transform.scale(
+                    scale: 0.5,
+                    child: SvgPicture.asset(
+                      height: 1,
+                      width: 1,
+                      'assets/icons/filter_list_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg',
+                    ),
+                  ),
                   prefixIcon: Icon(Icons.search),
                   contentPadding: EdgeInsets.symmetric(vertical: 10),
                   border: InputBorder.none,

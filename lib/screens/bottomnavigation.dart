@@ -1,3 +1,5 @@
+import 'package:comercial_app/screens/cart.dart';
+import 'package:comercial_app/screens/profile.dart';
 import 'package:comercial_app/screens/tryon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -16,9 +18,9 @@ class _NavState extends State<Nav> with SingleTickerProviderStateMixin {
   final List<Widget> pages = [
     Home(),
     Tryon(),
-    Center(child: Text('Notifications Page')),
-    Center(child: Text('Cart Page')),
-    Center(child: Text('Profile Page')),
+    Center(child: Text('No Notification')),
+    Cart(),
+    Profile(),
   ];
 
   final List<String> icons = [
