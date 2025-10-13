@@ -1,3 +1,4 @@
+import 'package:comercial_app/screens/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -138,7 +139,7 @@ class _HomeState extends State<Home> {
                   height: 76,
                   width: 76,
                   decoration: BoxDecoration(
-                    color: Colors.redAccent,
+                    color: Colors.grey.shade300,
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: ClipRRect(
@@ -157,7 +158,7 @@ class _HomeState extends State<Home> {
                   height: 76,
                   width: 76,
                   decoration: BoxDecoration(
-                    color: Colors.redAccent,
+                    color: Colors.grey.shade300,
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: ClipRRect(
@@ -176,7 +177,7 @@ class _HomeState extends State<Home> {
                   height: 76,
                   width: 76,
                   decoration: BoxDecoration(
-                    color: Colors.redAccent,
+                    color: Colors.grey.shade300,
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: ClipRRect(
@@ -198,7 +199,7 @@ class _HomeState extends State<Home> {
                   height: 76,
                   width: 76,
                   decoration: BoxDecoration(
-                    color: Colors.redAccent,
+                    color: Colors.grey.shade300,
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: ClipRRect(
@@ -295,11 +296,19 @@ class _HomeState extends State<Home> {
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(15),
-                          child: Image.asset(
-                            product['image']!,
-                            height: 180,
-                            width: double.infinity,
-                            fit: BoxFit.cover,
+                          child: GestureDetector(
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Product(),
+                              ),
+                            ),
+                            child: Image.asset(
+                              product['image']!,
+                              height: 180,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                         SizedBox(height: 2),

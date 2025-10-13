@@ -1,3 +1,4 @@
+import 'package:comercial_app/screens/signup.dart';
 import 'package:flutter/material.dart';
 
 class Onboarding extends StatefulWidget {
@@ -120,7 +121,12 @@ class _OnboardingState extends State<Onboarding>
                           shadowColor: Colors.amberAccent.withOpacity(0.6),
                           elevation: 10,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Signup()),
+                          );
+                        },
                         child: const Text(
                           "Get Started",
                           style: TextStyle(

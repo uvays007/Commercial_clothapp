@@ -1,3 +1,4 @@
+import 'package:comercial_app/screens/bottomnavigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -76,7 +77,12 @@ class Signup extends StatelessWidget {
                         foregroundColor: Colors.white,
                         backgroundColor: Color(0xFFC19375),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Nav()),
+                        );
+                      },
                       child: Text('Continue'),
                     ),
                   ),

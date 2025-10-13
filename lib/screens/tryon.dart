@@ -27,10 +27,10 @@ class Tryon extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 20),
+            const SizedBox(height: 5),
 
             Container(
-              height: 350,
+              height: 340,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 240, 240, 240),
@@ -134,7 +134,7 @@ class Tryon extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 38),
+            SizedBox(height: 10),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black,

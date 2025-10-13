@@ -1,4 +1,6 @@
-import 'package:comercial_app/screens/bottomnavigator.dart';
+import 'package:comercial_app/screens/bottomnavigation.dart';
+import 'package:comercial_app/screens/cart.dart';
+import 'package:comercial_app/screens/login.dart';
 import 'package:comercial_app/screens/onboarding.dart';
 import 'package:comercial_app/screens/product.dart';
 import 'package:comercial_app/screens/tryon.dart';
@@ -13,6 +15,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Tryon());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Login());
   }
 }
