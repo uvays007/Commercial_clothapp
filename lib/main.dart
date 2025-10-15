@@ -1,10 +1,5 @@
 import 'package:comercial_app/screens/bottomnavigation.dart';
-import 'package:comercial_app/screens/cart.dart';
-import 'package:comercial_app/screens/login.dart';
 import 'package:comercial_app/screens/onboarding.dart';
-import 'package:comercial_app/screens/product.dart';
-import 'package:comercial_app/screens/profile.dart';
-import 'package:comercial_app/screens/tryon.dart';
 import 'package:flutter/material.dart';
 
 void main() {

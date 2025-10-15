@@ -1,3 +1,4 @@
+import 'package:comercial_app/screens/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:comercial_app/screens/bottomnavigation.dart'; // adjust if needed
@@ -10,7 +11,6 @@ class Login extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
-          // ✅ Scrollable for smaller screens
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
@@ -42,6 +42,7 @@ class Login extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
+                SizedBox(height: 5),
                 const Text(
                   'Log in to your account',
                   style: TextStyle(
@@ -53,7 +54,6 @@ class Login extends StatelessWidget {
                 ),
                 const SizedBox(height: 40),
 
-                // ✅ Email Field
                 SizedBox(
                   height: 40,
                   child: TextField(
@@ -72,7 +72,6 @@ class Login extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
 
-                // ✅ Password Field
                 SizedBox(
                   height: 40,
                   child: TextField(
@@ -91,25 +90,6 @@ class Login extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 10),
-
-                // ✅ Forgot Password
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Forgot password?',
-                      style: TextStyle(
-                        fontFamily: 'Inter',
-                        color: Color(0xFFC19375),
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 10),
-
-                // ✅ Login Button
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -129,9 +109,21 @@ class Login extends StatelessWidget {
                     child: const Text('Log In'),
                   ),
                 ),
-                const SizedBox(height: 20),
 
-                // ✅ OR Divider
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Forgot password?',
+                      style: TextStyle(
+                        fontFamily: 'Inter',
+                        color: Color(0xFFC19375),
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
                 Row(
                   children: const [
                     Expanded(
@@ -158,9 +150,8 @@ class Login extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
 
-                // ✅ Google Login
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -188,7 +179,6 @@ class Login extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
 
-                // ✅ Apple Login
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -216,7 +206,6 @@ class Login extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
 
-                // ✅ Sign Up Link
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -229,7 +218,10 @@ class Login extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Signup()),
+                        );
                       },
                       child: const Text(
                         "Sign up",

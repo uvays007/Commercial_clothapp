@@ -8,11 +8,9 @@ class Tryon extends StatefulWidget {
 }
 
 class _TryonState extends State<Tryon> {
-  // Selected items (default)
   String selectedShirt = "assets/images/pngwing.com (3).png";
   String selectedPant = "assets/images/pngwing_pant.png";
 
-  // Shirt and pant options (can add more)
   final List<Map<String, String>> shirts = [
     {
       "name": "Tabular Men Tshirt Black",
@@ -117,7 +115,6 @@ class _TryonState extends State<Tryon> {
           children: [
             const SizedBox(height: 5),
 
-            // 🧍 Display area
             Container(
               height: 325,
               width: double.infinity,
@@ -141,7 +138,6 @@ class _TryonState extends State<Tryon> {
 
             const SizedBox(height: 10),
 
-            // 👕 Shirt chooser
             const Text(
               'Choose Shirt',
               style: TextStyle(
@@ -181,7 +177,6 @@ class _TryonState extends State<Tryon> {
 
             const SizedBox(height: 10),
 
-            // 👖 Pant chooser
             const Text(
               'Choose Pant',
               style: TextStyle(
@@ -221,7 +216,6 @@ class _TryonState extends State<Tryon> {
 
             const SizedBox(height: 10),
 
-            // 🛒 Add to Cart
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black,

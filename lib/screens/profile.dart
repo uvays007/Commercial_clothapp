@@ -75,7 +75,7 @@ class Profile extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             const Text(
-              "John Doe",
+              "Fazil Shaz",
               style: TextStyle(
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w700,
@@ -84,7 +84,7 @@ class Profile extends StatelessWidget {
             ),
             const SizedBox(height: 4),
             Text(
-              "johndoe@email.com",
+              "fazil123@gmail.com",
               style: TextStyle(
                 fontFamily: 'Inter',
                 color: Colors.grey[700],

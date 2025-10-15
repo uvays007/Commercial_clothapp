@@ -27,7 +27,6 @@ final List<Map<String, String>> products = [
     "price": "RS 399",
     "image": "assets/images/fashion-woman-with-clothes.jpg",
   },
-  // add more products as needed
 ];
 
 class Home extends StatefulWidget {
@@ -73,17 +72,17 @@ class _HomeState extends State<Home> {
             SizedBox(height: 10),
             Container(
               width: double.infinity,
-              height: 120, // adjust as needed
+              height: 120,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20), // rounded corners
+                borderRadius: BorderRadius.circular(20),
                 image: DecorationImage(
                   alignment: Alignment(0, -0.8),
                   image: AssetImage(
                     'assets/images/young-woman-beautiful-red-dress.jpg',
                   ),
-                  fit: BoxFit.cover, // cover the entire container
+                  fit: BoxFit.cover,
                   colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.1), // optional overlay
+                    Colors.black.withOpacity(0.1),
                     BlendMode.darken,
                   ),
                 ),

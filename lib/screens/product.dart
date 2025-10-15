@@ -11,7 +11,6 @@ class Product extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            // Top bar with back icon and title
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               child: Row(
@@ -33,7 +32,7 @@ class Product extends StatelessWidget {
                       fontFamily: 'Inter',
                     ),
                   ),
-                  const SizedBox(width: 32), // balance spacing
+                  const SizedBox(width: 32),
                 ],
               ),
             ),

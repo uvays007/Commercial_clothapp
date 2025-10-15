@@ -1,4 +1,5 @@
 import 'package:comercial_app/screens/cart.dart';
+import 'package:comercial_app/screens/notification.dart';
 import 'package:comercial_app/screens/profile.dart';
 import 'package:comercial_app/screens/tryon.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _NavState extends State<Nav> with SingleTickerProviderStateMixin {
   final List<Widget> pages = [
     Home(),
     Tryon(),
-    Center(child: Text('No Notification')),
+    NotificationPage(),
     Cart(),
     Profile(),
   ];
