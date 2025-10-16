@@ -1,6 +1,8 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:comercial_app/screens/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 final List<Map<String, String>> products = [
   {
@@ -28,6 +30,28 @@ final List<Map<String, String>> products = [
     "image": "assets/images/fashion-woman-with-clothes.jpg",
   },
 ];
+final List<Map<String, String>> banners = [
+  {
+    "Text1": "Womens Day",
+    "Text2": "Up to 50% off",
+    "image":
+        "assets/images/carousel_banner/young-woman-beautiful-red-dress.jpg",
+  },
+  {
+    "Text1": "Mens Day",
+    "Text2": "Up to 80% off",
+    "image":
+        "assets/images/carousel_banner/young-woman-beautiful-red-dress.jpg",
+  },
+  {
+    "Text1": "Kids Day",
+    "Text2": "Up to 30% off",
+    "image":
+        "assets/images/carousel_banner/young-woman-beautiful-red-dress.jpg",
+  },
+];
+int activeIndex = 0;
+final CarouselSliderController controller = CarouselSliderController();
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -70,55 +94,94 @@ class _HomeState extends State<Home> {
               ),
             ),
             SizedBox(height: 10),
-            Container(
-              width: double.infinity,
-              height: 120,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                image: DecorationImage(
-                  alignment: Alignment(0, -0.8),
-                  image: AssetImage(
-                    'assets/images/young-woman-beautiful-red-dress.jpg',
-                  ),
-                  fit: BoxFit.cover,
-                  colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.1),
-                    BlendMode.darken,
+            Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadiusGeometry.circular(25),
+                  child: CarouselSlider.builder(
+                    carouselController: controller,
+                    itemCount: banners.length,
+                    options: CarouselOptions(
+                      height: 130,
+                      autoPlay: true,
+                      enlargeCenterPage: false,
+                      viewportFraction: 1.0,
+                      onPageChanged: (index, reason) => setState(() {
+                        activeIndex = index;
+                      }),
+                    ),
+                    itemBuilder: (context, index, _) {
+                      final banner = banners[index];
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 120,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            alignment: Alignment(0, -0.8),
+                            image: AssetImage(banner["image"]!),
+                            fit: BoxFit.cover,
+                            colorFilter: ColorFilter.mode(
+                              Colors.black.withOpacity(0.1),
+                              BlendMode.darken,
+                            ),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(height: 10),
+                                Text(
+                                  banner["Text1"]!,
+                                  style: TextStyle(
+                                    fontFamily: 'Jomolhari',
+                                    color: Colors.white,
+                                    fontSize: 21,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  banner["Text2"]!,
+                                  style: TextStyle(
+                                    fontFamily: 'Jomolhari',
+                                    color: Colors.white,
+                                    fontSize: 21,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 10),
-                      Text(
-                        'Womens Day',
-                        style: TextStyle(
-                          fontFamily: 'Jomolhari',
-                          color: Colors.white,
-                          fontSize: 21,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        'Up to 50% off',
-                        style: TextStyle(
-                          fontFamily: 'Jomolhari',
-                          color: Colors.white,
-                          fontSize: 21,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
+                Positioned(
+                  bottom: 10,
+                  child: AnimatedSmoothIndicator(
+                    activeIndex: activeIndex,
+                    count: banners.length,
+                    effect: ExpandingDotsEffect(
+                      expansionFactor: 2.5,
+                      dotHeight: 8,
+                      dotWidth: 8,
+                      activeDotColor: Colors.white,
+                      dotColor: Colors.white.withOpacity(.5),
+
+                      spacing: 4,
+                    ),
+                    onDotClicked: (index) => controller.animateToPage(index),
                   ),
                 ),
-              ),
+              ],
             ),
+
             SizedBox(height: 10),
             Row(
               children: [
@@ -148,6 +211,7 @@ class _HomeState extends State<Home> {
                   decoration: BoxDecoration(
                     color: Colors.grey.shade300,
                     borderRadius: BorderRadius.circular(100),
+                    border: Border.all(color: Colors.grey, width: 3),
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadiusGeometry.circular(100),
@@ -167,6 +231,7 @@ class _HomeState extends State<Home> {
                   decoration: BoxDecoration(
                     color: Colors.grey.shade300,
                     borderRadius: BorderRadius.circular(100),
+                    border: Border.all(color: Colors.grey, width: 3),
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadiusGeometry.circular(100),
@@ -186,6 +251,7 @@ class _HomeState extends State<Home> {
                   decoration: BoxDecoration(
                     color: Colors.grey.shade300,
                     borderRadius: BorderRadius.circular(100),
+                    border: Border.all(color: Colors.grey, width: 3),
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadiusGeometry.circular(100),
@@ -208,6 +274,7 @@ class _HomeState extends State<Home> {
                   decoration: BoxDecoration(
                     color: Colors.grey.shade300,
                     borderRadius: BorderRadius.circular(100),
+                    border: Border.all(color: Colors.grey, width: 3),
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadiusGeometry.circular(100),
