@@ -1,5 +1,4 @@
-import 'package:comercial_app/screens/bottomnavigation.dart';
-import 'package:comercial_app/screens/onboarding.dart';
+import 'package:comercial_app/screens/nav_screen/nav.dart';
 import 'package:flutter/material.dart';
 
 void main() {
