@@ -8,20 +8,20 @@ class Tryon extends StatefulWidget {
 }
 
 class _TryonState extends State<Tryon> {
-  String selectedShirt = "assets/images/pngwing.com (3).png";
+  String selectedShirt = "assets/images/Tshirt(black_china).png";
   String selectedPant = "assets/images/pngwing_pant.png";
 
   final List<Map<String, String>> shirts = [
     {
       "name": "Tabular Men Tshirt Black",
-      "image": "assets/images/pngwing.com (3).png",
+      "image": "assets/images/Tshirt(black_china).png",
     },
     {
       "name": "Tabular Men Tshirt Red",
-      "image": "assets/images/Tshirt(Red).png",
+      "image": "assets/images/Tshirt(blue).png",
     },
     {
-      "name": "Tabular Men Tshirt Green",
+      "name": "Tabular Men Tshirt Blue",
       "image": "assets/images/Tshirt(Green).png",
     },
   ];
@@ -29,6 +29,7 @@ class _TryonState extends State<Tryon> {
   final List<Map<String, String>> pants = [
     {"name": "Polo Men Jeans", "image": "assets/images/pngwing_pant.png"},
     {"name": "Black Slim Fit", "image": "assets/images/black_pant.png"},
+    {"name": "Black Slim brown", "image": "assets/images/pant_blueflop.png"},
   ];
 
   void _showItemSelector({required bool isShirt}) {

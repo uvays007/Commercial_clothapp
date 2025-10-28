@@ -9,7 +9,7 @@ final List<Map<String, String>> products = [
     "brandname": "KIKI Original",
     "name": "Men Tshirt",
     "price": "RS 600",
-    "image": "assets/images/alex-haigh-fEt6Wd4t4j0-unsplash.jpg",
+    "image": "assets/images/Tshirt(black_china).png",
   },
   {
     "brandname": "Leventer",
@@ -400,11 +400,14 @@ class _HomeState extends State<Home> {
                                 builder: (context) => Product(),
                               ),
                             ),
-                            child: Image.asset(
-                              product['image']!,
-                              height: 180,
-                              width: double.infinity,
-                              fit: BoxFit.cover,
+                            child: Transform.scale(
+                              scale: 1.5,
+                              child: Image.asset(
+                                product['image']!,
+                                height: 180,
+                                width: double.infinity,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
