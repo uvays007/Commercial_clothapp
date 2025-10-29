@@ -11,27 +11,34 @@ class _TryonState extends State<Tryon> {
   String selectedShirt = "assets/images/Tshirt(black_china).png";
   String selectedPant = "assets/images/pngwing_pant.png";
 
+  String selectedShirtName = "2STROKE MEN Tshirt Black";
+  String selectedPantName = "Polo Men Jeans Blue";
+
   final List<Map<String, String>> shirts = [
     {
-      "name": "Tabular Men Tshirt Black",
+      "name": "2STROKE Men Tshirt Black",
       "image": "assets/images/Tshirt(black_china).png",
     },
     {
-      "name": "Tabular Men Tshirt Red",
+      "name": "Ortox Men Tshirt Blue",
       "image": "assets/images/Tshirt(blue).png",
     },
     {
-      "name": "Tabular Men Tshirt Blue",
+      "name": "Gladiator Men Tshirt Green",
       "image": "assets/images/Tshirt(Green).png",
     },
   ];
 
   final List<Map<String, String>> pants = [
-    {"name": "Polo Men Jeans", "image": "assets/images/pngwing_pant.png"},
-    {"name": "Black Slim Fit", "image": "assets/images/black_pant.png"},
-    {"name": "Black Slim brown", "image": "assets/images/pant_blueflop.png"},
+    {"name": "Polo Men Jeans Blue", "image": "assets/images/pngwing_pant.png"},
+    {
+      "name": "Leventer Men Jeans Black",
+      "image": "assets/images/black_pant.png",
+    },
+    {"name": "Hasp Men Jeans Grey", "image": "assets/images/pant_blueflop.png"},
   ];
 
+  /// Show shirt/pant selector bottom sheet
   void _showItemSelector({required bool isShirt}) {
     showModalBottomSheet(
       context: context,
@@ -41,6 +48,8 @@ class _TryonState extends State<Tryon> {
       ),
       builder: (context) {
         final items = isShirt ? shirts : pants;
+        final currentSelection = isShirt ? selectedShirt : selectedPant;
+
         return Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -58,27 +67,85 @@ class _TryonState extends State<Tryon> {
               Flexible(
                 child: ListView.builder(
                   shrinkWrap: true,
+                  physics: const BouncingScrollPhysics(),
                   itemCount: items.length,
                   itemBuilder: (context, index) {
                     final item = items[index];
-                    return ListTile(
-                      leading: Image.asset(
-                        item["image"]!,
-                        height: 50,
-                        width: 50,
-                        fit: BoxFit.contain,
-                      ),
-                      title: Text(item["name"]!),
+                    final isSelected = item["image"] == currentSelection;
+
+                    return GestureDetector(
                       onTap: () {
                         setState(() {
                           if (isShirt) {
                             selectedShirt = item["image"]!;
+                            selectedShirtName = item["name"]!;
                           } else {
                             selectedPant = item["image"]!;
+                            selectedPantName = item["name"]!;
                           }
                         });
                         Navigator.pop(context);
                       },
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 8),
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: isSelected
+                              ? const Color(0xFFFFF4EC)
+                              : Colors.grey.shade100,
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: isSelected
+                                ? const Color(0xFFC19375)
+                                : Colors.grey.shade300,
+                            width: 2,
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            Container(
+                              height: 90,
+                              width: 90,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(color: Colors.grey.shade300),
+                              ),
+                              child: Transform.translate(
+                                offset: isShirt
+                                    ? const Offset(3, 15)
+                                    : const Offset(3, -15),
+                                child: Transform.scale(
+                                  scale: 1.5,
+                                  child: Image.asset(
+                                    item["image"]!,
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 15),
+                            Expanded(
+                              child: Text(
+                                item["name"]!,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                            Icon(
+                              isSelected
+                                  ? Icons.check_circle
+                                  : Icons.circle_outlined,
+                              color: isSelected
+                                  ? const Color(0xFFC19375)
+                                  : Colors.grey,
+                            ),
+                          ],
+                        ),
+                      ),
                     );
                   },
                 ),
@@ -90,11 +157,196 @@ class _TryonState extends State<Tryon> {
     );
   }
 
+  /// 🛒 Show Add-to-Cart popup
+  void _showAddToCartPopup() {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        bool addShirt = true;
+        bool addPant = true;
+
+        return StatefulBuilder(
+          builder: (context, setModalState) {
+            return Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Center(
+                    child: Text(
+                      "Add to Cart",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Inter',
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+
+                  // 👕 Shirt Option
+                  GestureDetector(
+                    onTap: () => setModalState(() => addShirt = !addShirt),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 12,
+                        horizontal: 10,
+                      ),
+                      margin: const EdgeInsets.symmetric(vertical: 6),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: addShirt
+                              ? const Color(0xFFC19375)
+                              : Colors.grey.shade300,
+                          width: 2,
+                        ),
+                        color: addShirt
+                            ? const Color(0xFFFFF4EC)
+                            : Colors.grey.shade100,
+                      ),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.check_circle_outline,
+                            color: Colors.grey,
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Text(
+                              "Add Shirt (${selectedShirtName})",
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          Icon(
+                            addShirt
+                                ? Icons.check_circle
+                                : Icons.circle_outlined,
+                            color: addShirt
+                                ? const Color(0xFFC19375)
+                                : Colors.grey,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  // 👖 Pant Option
+                  GestureDetector(
+                    onTap: () => setModalState(() => addPant = !addPant),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 12,
+                        horizontal: 10,
+                      ),
+                      margin: const EdgeInsets.symmetric(vertical: 6),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: addPant
+                              ? const Color(0xFFC19375)
+                              : Colors.grey.shade300,
+                          width: 2,
+                        ),
+                        color: addPant
+                            ? const Color(0xFFFFF4EC)
+                            : Colors.grey.shade100,
+                      ),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.check_circle_outline,
+                            color: Colors.grey,
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Text(
+                              "Add Pant (${selectedPantName})",
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          Icon(
+                            addPant
+                                ? Icons.check_circle
+                                : Icons.circle_outlined,
+                            color: addPant
+                                ? const Color(0xFFC19375)
+                                : Colors.grey,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 15),
+
+                  // ✅ Confirm button
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFC19375),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      minimumSize: const Size(double.infinity, 56),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      String addedItems = '';
+                      if (addShirt && addPant) {
+                        addedItems = '$selectedShirtName and $selectedPantName';
+                      } else if (addShirt) {
+                        addedItems = selectedShirtName;
+                      } else if (addPant) {
+                        addedItems = selectedPantName;
+                      } else {
+                        addedItems = 'No items';
+                      }
+
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Added $addedItems to Cart!'),
+                          duration: const Duration(seconds: 1),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      "Confirm",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Column(
@@ -102,6 +354,7 @@ class _TryonState extends State<Tryon> {
             children: [
               const SizedBox(height: 5),
 
+              // 🧍‍♂️ Try-on Preview
               Container(
                 height: 325,
                 width: double.infinity,
@@ -129,6 +382,7 @@ class _TryonState extends State<Tryon> {
 
               const SizedBox(height: 10),
 
+              // 👕 Shirt selector
               const Text(
                 'Choose Shirt',
                 style: TextStyle(
@@ -141,7 +395,7 @@ class _TryonState extends State<Tryon> {
               GestureDetector(
                 onTap: () => _showItemSelector(isShirt: true),
                 child: Container(
-                  height: 40,
+                  height: 45,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey.shade300),
                     borderRadius: BorderRadius.circular(12),
@@ -149,15 +403,15 @@ class _TryonState extends State<Tryon> {
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
+                    children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 12),
+                        padding: const EdgeInsets.only(left: 12),
                         child: Text(
-                          'Select Shirt',
-                          style: TextStyle(fontSize: 15),
+                          selectedShirtName,
+                          style: const TextStyle(fontSize: 15),
                         ),
                       ),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.only(right: 12),
                         child: Icon(Icons.add_box),
                       ),
@@ -168,6 +422,7 @@ class _TryonState extends State<Tryon> {
 
               const SizedBox(height: 10),
 
+              // 👖 Pant selector
               const Text(
                 'Choose Pant',
                 style: TextStyle(
@@ -180,7 +435,7 @@ class _TryonState extends State<Tryon> {
               GestureDetector(
                 onTap: () => _showItemSelector(isShirt: false),
                 child: Container(
-                  height: 40,
+                  height: 45,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey.shade300),
                     borderRadius: BorderRadius.circular(12),
@@ -188,15 +443,15 @@ class _TryonState extends State<Tryon> {
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
+                    children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 12),
+                        padding: const EdgeInsets.only(left: 12),
                         child: Text(
-                          'Select Pant',
-                          style: TextStyle(fontSize: 15),
+                          selectedPantName,
+                          style: const TextStyle(fontSize: 15),
                         ),
                       ),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.only(right: 12),
                         child: Icon(Icons.add_box),
                       ),
@@ -205,24 +460,18 @@ class _TryonState extends State<Tryon> {
                 ),
               ),
 
-              const SizedBox(height: 10),
+              const SizedBox(height: 15),
 
+              // 🛒 Add to cart
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFFC19375),
+                  backgroundColor: const Color(0xFFC19375),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(14),
                   ),
                   minimumSize: const Size(double.infinity, 56),
                 ),
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text("Added to Cart!"),
-                      duration: Duration(seconds: 1),
-                    ),
-                  );
-                },
+                onPressed: _showAddToCartPopup,
                 child: const Text(
                   'Add to Cart',
                   style: TextStyle(

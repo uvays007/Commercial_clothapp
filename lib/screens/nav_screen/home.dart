@@ -6,28 +6,28 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 final List<Map<String, String>> products = [
   {
-    "brandname": "KIKI Original",
-    "name": "Men Tshirt",
+    "brandname": "2STROKE",
+    "name": "Men Tshirt Black",
     "price": "RS 600",
-    "image": "assets/images/Tshirt(black_china).png",
+    "image": "assets/images/black_sale.png",
   },
   {
     "brandname": "Leventer",
-    "name": "Men Jeans",
+    "name": "Men Jeans Blue",
     "price": "RS 1200",
     "image": "assets/images/tuananh-blue-wNP79A-_bRY-unsplash.jpg",
   },
   {
     "brandname": "Ortox",
-    "name": "Women Nighty",
+    "name": "Men Tshirt Blue",
     "price": "RS 500",
-    "image": "assets/images/muhammad-nadir-cHLW0E2PrAc-unsplash.jpg",
+    "image": "assets/images/blue_sale.png",
   },
   {
-    "brandname": "Kitty",
-    "name": "Girls Frock",
+    "brandname": "Gladiator",
+    "name": "Men Tshirt Green",
     "price": "RS 399",
-    "image": "assets/images/fashion-woman-with-clothes.jpg",
+    "image": "assets/images/green_sale.png",
   },
 ];
 final List<Map<String, String>> banners = [
@@ -70,8 +70,9 @@ class _HomeState extends State<Home> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 10),
+            SizedBox(height: 7),
             Container(
+              height: 40,
               decoration: BoxDecoration(
                 color: Color(0xFFF1F3F4),
                 borderRadius: BorderRadius.circular(8),
@@ -93,7 +94,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 7),
             Stack(
               alignment: Alignment.bottomCenter,
               children: [
@@ -103,9 +104,10 @@ class _HomeState extends State<Home> {
                     carouselController: controller,
                     itemCount: banners.length,
                     options: CarouselOptions(
+                      autoPlayCurve: Curves.slowMiddle,
                       enableInfiniteScroll: true,
                       pauseAutoPlayOnTouch: true,
-                      height: 130,
+                      height: 120,
                       autoPlay: true,
 
                       enlargeCenterPage: false,
@@ -121,6 +123,7 @@ class _HomeState extends State<Home> {
                         width: MediaQuery.of(context).size.width,
                         height: 120,
                         decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 27, 176, 202),
                           image: DecorationImage(
                             alignment: Alignment(0, -0.8),
                             image: AssetImage(banner["image"]!),
@@ -344,7 +347,7 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 5),
             Row(
               children: [
                 Text(
@@ -400,8 +403,8 @@ class _HomeState extends State<Home> {
                                 builder: (context) => Product(),
                               ),
                             ),
-                            child: Transform.scale(
-                              scale: 1.5,
+                            child: Container(
+                              color: Colors.grey.shade300,
                               child: Image.asset(
                                 product['image']!,
                                 height: 180,

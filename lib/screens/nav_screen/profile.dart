@@ -1,3 +1,5 @@
+import 'package:comercial_app/screens/order_screen/order.dart';
+import 'package:comercial_app/screens/wishlist_screen/wishlist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -77,14 +79,24 @@ class Profile extends StatelessWidget {
                   'assets/icons/orders_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg',
               title: "My Orders",
               subtitle: "View your past and current orders",
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => OrderPage()),
+                );
+              },
             ),
             _buildProfileOption(
               icon:
                   'assets/icons/bookmark_heart_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg',
               title: "Wishlist",
               subtitle: "Your saved products",
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => WishlistPage()),
+                );
+              },
             ),
             _buildProfileOption(
               icon:

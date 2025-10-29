@@ -52,7 +52,7 @@ class Product extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(16),
                         child: Image.asset(
-                          'assets/images/alex-haigh-fEt6Wd4t4j0-unsplash.png',
+                          'assets/images/black_sale.png',
                           height: 360,
                           width: double.infinity,
                         ),
@@ -63,7 +63,7 @@ class Product extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: const [
                         Text(
-                          'KIKI Originals',
+                          '2STROKE',
                           style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
@@ -193,7 +193,7 @@ class Product extends StatelessWidget {
         ),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.black,
+            backgroundColor: Color(0xFFC19375),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(14),
             ),

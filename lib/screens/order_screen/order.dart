@@ -11,17 +11,17 @@ class OrderPage extends StatelessWidget {
         'date': 'Oct 12, 2025',
         'items': [
           {
-            'name': 'KIKI Originals - Men Tshirt',
-            'image': 'assets/images/alex-haigh-fEt6Wd4t4j0-unsplash.png',
-            'price': 600,
+            'name': '2STROKES - Men Tshirt',
+            'price': '600',
+            'image': 'assets/images/black_sale.png',
           },
           {
-            'name': 'Leventer - Men Jeans',
-            'image': 'assets/images/tuananh-blue-wNP79A-_bRY-unsplash.jpg',
-            'price': 1200,
+            'name': ' Ortox - Men Tshirt',
+            'price': '500',
+            'image': 'assets/images/blue_sale.png',
           },
         ],
-        'total': 1800,
+        'total': 1100,
         'status': 'Delivered',
       },
       {
@@ -29,12 +29,12 @@ class OrderPage extends StatelessWidget {
         'date': 'Oct 20, 2025',
         'items': [
           {
-            'name': 'Urban Fit - Oversized Hoodie',
-            'image': 'assets/images/pngwing_pant.png',
-            'price': 950,
+            'name': 'Gladiator - Men Tshirt',
+            'price': '399',
+            'image': 'assets/images/green_sale.png',
           },
         ],
-        'total': 950,
+        'total': 399,
         'status': 'In Transit',
       },
     ];

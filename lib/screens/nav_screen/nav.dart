@@ -3,6 +3,8 @@ import 'package:comercial_app/screens/nav_screen/home.dart';
 import 'package:comercial_app/screens/nav_screen/profile.dart';
 import 'package:comercial_app/screens/nav_screen/tryon.dart';
 import 'package:comercial_app/screens/notification_screen/notification.dart';
+import 'package:comercial_app/screens/order_screen/order.dart';
+import 'package:comercial_app/screens/wishlist_screen/wishlist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -54,7 +56,7 @@ class _NavState extends State<Nav> with SingleTickerProviderStateMixin {
           Padding(
             padding: const EdgeInsets.only(right: 12.0),
             child: GestureDetector(
-              onTap: () => setState(() => selectedIndex = 4), // Go to profile
+              onTap: () => setState(() => selectedIndex = 3), // Go to profile
               child: Container(
                 width: 35,
                 height: 35,
@@ -161,20 +163,31 @@ class _NavState extends State<Nav> with SingleTickerProviderStateMixin {
             onTap: () => _navigateTo(0),
           ),
           buildDrawerItem(
-            icon: Icons.checkroom_outlined,
-            text: "Try On",
-            onTap: () => _navigateTo(1),
+            icon: Icons.shopping_cart_checkout,
+            text: "Orders",
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => OrderPage()),
+            ),
           ),
 
           buildDrawerItem(
-            icon: Icons.shopping_cart_outlined,
-            text: "Cart",
-            onTap: () => _navigateTo(2),
+            icon: Icons.favorite_outline,
+            text: "Wishlist",
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => WishlistPage()),
+            ),
           ),
           buildDrawerItem(
-            icon: Icons.person_outline,
-            text: "Profile",
+            icon: Icons.settings_outlined,
+            text: "Settings",
             onTap: () => _navigateTo(3),
+          ),
+          buildDrawerItem(
+            icon: Icons.help_outline,
+            text: "Help",
+            onTap: () => _navigateTo(4),
           ),
 
           const Spacer(),

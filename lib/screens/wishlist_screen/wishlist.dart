@@ -7,19 +7,19 @@ class WishlistPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> wishlistItems = [
       {
-        'name': 'KIKI Originals - Men Tshirt',
+        'name': '2STROKES - Men Tshirt',
         'price': 'RS. 600',
-        'image': 'assets/images/alex-haigh-fEt6Wd4t4j0-unsplash.png',
+        'image': 'assets/images/black_sale.png',
       },
       {
-        'name': 'Leventer - Men Jeans',
-        'price': 'RS. 1200',
-        'image': 'assets/images/tuananh-blue-wNP79A-_bRY-unsplash.jpg',
+        'name': ' Ortox - Men Tshirt',
+        'price': 'RS. 500',
+        'image': 'assets/images/blue_sale.png',
       },
       {
-        'name': 'Urban Fit - Oversized Hoodie',
-        'price': 'RS. 950',
-        'image': 'assets/images/pngwing_pant.png',
+        'name': 'Gladiator - Men Tshirt',
+        'price': 'RS. 399',
+        'image': 'assets/images/green_sale.png',
       },
     ];
 

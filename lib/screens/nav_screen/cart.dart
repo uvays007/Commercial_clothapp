@@ -24,7 +24,6 @@ class _CartState extends State<Cart> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: ListView(
-                physics: const BouncingScrollPhysics(),
                 children: [
                   SizedBox(height: 10),
                   Row(
@@ -47,9 +46,8 @@ class _CartState extends State<Cart> {
                   const SizedBox(height: 10),
 
                   _buildCartItem(
-                    imagePath:
-                        'assets/images/alex-haigh-fEt6Wd4t4j0-unsplash.png',
-                    title: 'KIKI Originals',
+                    imagePath: 'assets/images/black_sale.png',
+                    title: '2STROKES',
                     subtitle: 'Men Tshirt',
                     desc: 'High quality cotton wear',
                     qty: '01',
@@ -68,7 +66,6 @@ class _CartState extends State<Cart> {
                   const Divider(thickness: 1.2),
                   const SizedBox(height: 10),
 
-                  // Editable shipping and coupon rows
                   _buildEditableRow(
                     title: 'SHIPPING',
                     hint: 'Add Shipping Address',
@@ -80,7 +77,7 @@ class _CartState extends State<Cart> {
                       });
                     },
                   ),
-                  _buildInfoRow(title: 'DELIVERY', subtitle: 'Free | 3–4 days'),
+                  _buildInfoRow(title: 'DELIVERY', subtitle: 'Free | 3-4 days'),
                   _buildInfoRow(title: 'PAYMENT', subtitle: 'Visa *1234'),
                   _buildEditableRow(
                     title: 'COUPON',
@@ -153,7 +150,7 @@ class _CartState extends State<Cart> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 80), // space for button
+                  const SizedBox(height: 80),
                 ],
               ),
             ),
@@ -197,7 +194,6 @@ class _CartState extends State<Cart> {
     );
   }
 
-  // ---- Info Row ----
   Widget _buildInfoRow({required String title, required String subtitle}) {
     return Column(
       children: [
@@ -223,7 +219,6 @@ class _CartState extends State<Cart> {
     );
   }
 
-  // ---- Editable Row ----
   Widget _buildEditableRow({
     required String title,
     required String hint,
