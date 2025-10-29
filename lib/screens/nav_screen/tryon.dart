@@ -38,7 +38,6 @@ class _TryonState extends State<Tryon> {
     {"name": "Hasp Men Jeans Grey", "image": "assets/images/pant_blueflop.png"},
   ];
 
-  /// Show shirt/pant selector bottom sheet
   void _showItemSelector({required bool isShirt}) {
     showModalBottomSheet(
       context: context,
@@ -157,7 +156,6 @@ class _TryonState extends State<Tryon> {
     );
   }
 
-  /// 🛒 Show Add-to-Cart popup
   void _showAddToCartPopup() {
     showModalBottomSheet(
       context: context,
@@ -189,7 +187,6 @@ class _TryonState extends State<Tryon> {
                   ),
                   const SizedBox(height: 15),
 
-                  // 👕 Shirt Option
                   GestureDetector(
                     onTap: () => setModalState(() => addShirt = !addShirt),
                     child: Container(
@@ -212,10 +209,6 @@ class _TryonState extends State<Tryon> {
                       ),
                       child: Row(
                         children: [
-                          const Icon(
-                            Icons.check_circle_outline,
-                            color: Colors.grey,
-                          ),
                           const SizedBox(width: 10),
                           Expanded(
                             child: Text(
@@ -240,7 +233,6 @@ class _TryonState extends State<Tryon> {
                     ),
                   ),
 
-                  // 👖 Pant Option
                   GestureDetector(
                     onTap: () => setModalState(() => addPant = !addPant),
                     child: Container(
@@ -263,10 +255,6 @@ class _TryonState extends State<Tryon> {
                       ),
                       child: Row(
                         children: [
-                          const Icon(
-                            Icons.check_circle_outline,
-                            color: Colors.grey,
-                          ),
                           const SizedBox(width: 10),
                           Expanded(
                             child: Text(
@@ -293,7 +281,6 @@ class _TryonState extends State<Tryon> {
 
                   const SizedBox(height: 15),
 
-                  // ✅ Confirm button
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFFC19375),
@@ -354,7 +341,6 @@ class _TryonState extends State<Tryon> {
             children: [
               const SizedBox(height: 5),
 
-              // 🧍‍♂️ Try-on Preview
               Container(
                 height: 325,
                 width: double.infinity,
@@ -382,7 +368,6 @@ class _TryonState extends State<Tryon> {
 
               const SizedBox(height: 10),
 
-              // 👕 Shirt selector
               const Text(
                 'Choose Shirt',
                 style: TextStyle(
@@ -422,7 +407,6 @@ class _TryonState extends State<Tryon> {
 
               const SizedBox(height: 10),
 
-              // 👖 Pant selector
               const Text(
                 'Choose Pant',
                 style: TextStyle(
@@ -462,7 +446,6 @@ class _TryonState extends State<Tryon> {
 
               const SizedBox(height: 15),
 
-              // 🛒 Add to cart
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFC19375),

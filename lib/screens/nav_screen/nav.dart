@@ -182,12 +182,12 @@ class _NavState extends State<Nav> with SingleTickerProviderStateMixin {
           buildDrawerItem(
             icon: Icons.settings_outlined,
             text: "Settings",
-            onTap: () => _navigateTo(3),
+            onTap: () => () {},
           ),
           buildDrawerItem(
             icon: Icons.help_outline,
             text: "Help",
-            onTap: () => _navigateTo(4),
+            onTap: () => () {},
           ),
 
           const Spacer(),

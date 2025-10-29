@@ -125,7 +125,7 @@ class _HomeState extends State<Home> {
                         decoration: BoxDecoration(
                           color: const Color.fromARGB(255, 27, 176, 202),
                           image: DecorationImage(
-                            alignment: Alignment(0, -0.8),
+                            alignment: Alignment(0, -0.5),
                             image: AssetImage(banner["image"]!),
                             fit: BoxFit.cover,
                             colorFilter: ColorFilter.mode(
